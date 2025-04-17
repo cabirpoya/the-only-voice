@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>📚 Advanced Poem Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="header">
+    <h1>📚 My Poem Library</h1>
+    <input type="text" id="searchInput" placeholder="Search by title, author, or content...">
+  </div>
+
+  <div class="controls">
+    <button onclick="showForm()">➕ Add New Poem</button>
+    <select id="filterAlpha" onchange="filterAlphabet(this.value)">
+      <option value="">🔤 Filter A-Z</option>
+      ${'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(l => `<option value="${l}">${l}</option>`).join('')}
+    </select>
+  </div>
+
+  <div id="poemFormContainer" class="form-container hidden">
+    <h2>Add or Edit Poem</h2>
+    <form id="poemForm">
+      <input type="hidden" id="poemId" />
+      <input type="text" id="title" placeholder="Title" required />
+      <input type="text" id="author" placeholder="Author" required />
+      <input type="text" id="category" placeholder="Category (Love, Nature...)" />
+      <textarea id="content" placeholder="Your poem..." required></textarea>
+      <div class="form-buttons">
+        <button type="submit">💾 Save</button>
+        <button type="button" onclick="hideForm()">❌ Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="poemList"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
